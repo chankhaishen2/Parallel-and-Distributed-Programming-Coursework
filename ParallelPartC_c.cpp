@@ -30,7 +30,7 @@ int main() {
 				int sum = 0;
 				#pragma omp parallel for schedule(static) firstprivate(i, j) shared(matrixA, matrixB, matrixResult) reduction(+: sum)
 				for (int k = 0; k < N; k++) {
-					sum += matrixA[i][k] + matrixB[k][j];
+					sum += matrixA[i][k] * matrixB[k][j];
 				}
 				matrixResult[i][j] = sum;
 			}
